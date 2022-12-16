@@ -19,3 +19,23 @@ class Solution {
         return answer;
     }
 }
+
+//이 방법은 생각도 못했넹 .. 어차피 다 쿠폰인걸 ..
+
+class Solution {
+    public int solution(int chicken) {
+        int answer = 0;
+        while (chicken >= 10){
+            int service = chicken / 10;
+            int nmg = chicken %  10;
+
+            chicken = service + nmg;
+
+            answer += service;
+
+        }
+
+
+        return answer;
+    }
+}
