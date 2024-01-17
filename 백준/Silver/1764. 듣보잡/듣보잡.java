@@ -4,34 +4,36 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    public static void main(String [] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        HashSet<String> set = new HashSet<String>();
-        List <String > list = new ArrayList<String>();
+        Set<String>set = new HashSet<>();
 
-        for(int i = 0 ; i<N; i++){
+
+        for(int i = 0; i<N; i++){
             set.add(br.readLine());
         }
+
+        ArrayList<String>result = new ArrayList<>();
+        int total = 0;
+
         for(int i = 0 ; i<M; i++){
-           String str = br.readLine();
-           if(set.contains(str)){
-               list.add(str);
-           }
+            String word = br.readLine();
+            if(set.contains(word)){
+                result.add(word);
+                total ++;
+            }
         }
-        Collections.sort(list);
+        StringBuilder sb = new StringBuilder();
+        sb.append(total).append("\n");
 
-        StringBuilder sb =new StringBuilder();
-        sb.append(list.size()+ "\n");
-        for(int i = 0 ; i< list.size(); i++){
-            sb.append(list.get(i)+"\n");
+        Collections.sort(result);
+        for(String str : result){
+            sb.append(str).append("\n");
         }
-System.out.println(sb);
-
-
+        System.out.println(sb);
     }
 }
