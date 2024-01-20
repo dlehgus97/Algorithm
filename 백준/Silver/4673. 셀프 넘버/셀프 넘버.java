@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         boolean[] arr = new boolean[10001];
+        StringBuilder sb = new StringBuilder();
 
 
         for (int i = 1; i < 10001; i++) {
@@ -22,10 +23,12 @@ public class Main {
                 arr[num] = true;
             }
         }
+
         for (int i = 1; i < 10001; i++) {
             if (arr[i] == false) {
-                System.out.println(i);
+                sb.append(i).append("\n");
             }
         }
+        System.out.println(sb);
     }
 }
