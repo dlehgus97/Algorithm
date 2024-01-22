@@ -16,7 +16,7 @@ public class Main {
         }
 
         for(int i = 2; i<30; i++){
-            for(int j = 1; j<30; j++){
+            for(int j = 1; j<i; j++){
                 dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
             }
         }
