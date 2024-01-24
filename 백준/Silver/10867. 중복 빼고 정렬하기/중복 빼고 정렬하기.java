@@ -16,12 +16,15 @@ public class Main {
             set.add(Integer.parseInt(st.nextToken()));
         }
 
-        List<Integer> li = new ArrayList<>(set);
-        
-        Collections.sort(li);
-        
-        for(int i = 0 ; i<set.size(); i++){
-            System.out.print(li.get(i) + " ");
+        List<Integer> list = new ArrayList<>(set);
+
+        Collections.sort(list);
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int num : list){
+            sb.append(num).append(" ");
         }
+        System.out.println(sb);
     }
 }
