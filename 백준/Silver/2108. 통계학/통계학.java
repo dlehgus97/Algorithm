@@ -22,7 +22,7 @@ public class Main {
 
         int count = 0 ;
         int max = Integer.MIN_VALUE;
-        int result = arr[0] ;
+        int result = arr[0] ; // 초기화를 arr[0]으로 한 이유는 N이 1일때를 위해서이다 
         boolean check = false;
 
 
