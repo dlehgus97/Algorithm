@@ -6,7 +6,8 @@ import java.util.Arrays;
 public class Main {
     public static void main(String [] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        StringBuilder sb = new StringBuilder();
+        
         int N = Integer.parseInt(br.readLine());
 
         int [] arr = new int[N];
@@ -21,6 +22,7 @@ public class Main {
         for(int i = N - 1; i>=0; i--){
             max = Math.max(max,arr[i] *( N - i ));
         }
-      System.out.println(max);
+        sb.append(max);
+      System.out.println(sb);
     }
 }
