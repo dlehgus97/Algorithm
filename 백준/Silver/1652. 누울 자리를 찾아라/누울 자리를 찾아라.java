@@ -3,47 +3,68 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String [] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
         int N = Integer.parseInt(br.readLine());
-        String[][] room = new String[N][N];
 
-        // 방 배열 초기화
-        for (int i = 0; i < N; i++) {
-            String word = br.readLine();
-            for (int j = 0; j < N; j++) {
-                room[i][j] = String.valueOf(word.charAt(j));
+        String [][] arr = new String[N][N];
+
+        for(int i = 0 ; i<N; i++){
+            String str = br.readLine();
+            for(int j = 0 ; j<N; j++){
+                arr[i][j] = String.valueOf(str.charAt(j));
             }
         }
-
-        int horizontalCount = 0;
-        int verticalCount = 0;
-
-        // 가로로 누울 수 있는 자리 개수 세기
-        for (int i = 0; i < N; i++) {
-            String row = String.join("", room[i]);
-            String[] horizontalSeats = row.split("X");
-            for (String seats : horizontalSeats) {
-                if (seats.length() >= 2) {
-                    horizontalCount++;
+        int count = 0 ;
+        int result = 0;
+        for(int i = 0 ; i<N; i++){
+            for(int j = 0 ; j<N; j++){
+                if(arr[i][j].equals(".")){
+                    count++;
+                    if(j == N - 1){
+                        if(count>=2){
+                            result++;
+                        }
+                        count = 0;
+                    }
+                }
+                else if(arr[i][j].equals("X")){
+                    if(count>=2){
+                        result++;
+                    }
+                    count = 0;
                 }
             }
         }
 
-        // 세로로 누울 수 있는 자리 개수 세기
-        for (int j = 0; j < N; j++) {
-            StringBuilder col = new StringBuilder();
-            for (int i = 0; i < N; i++) {
-                col.append(room[i][j]);
-            }
-            String[] verticalSeats = col.toString().split("X");
-            for (String seats : verticalSeats) {
-                if (seats.length() >= 2) {
-                    verticalCount++;
+        sb.append(result + " ");
+
+        count = 0 ;
+        result = 0;
+
+
+        for(int i = 0 ; i<N; i++){
+            for(int j = 0 ; j<N; j++){
+                if(arr[j][i].equals(".")){
+                    count++;
+                    if(j == N - 1){
+                        if(count>=2){
+                            result++;
+                        }
+                        count = 0;
+                    }
+                }
+                else if(arr[j][i].equals("X")){
+                    if(count>=2){
+                        result++;
+                    }
+                    count = 0;
                 }
             }
         }
-
-        System.out.println(horizontalCount + " " + verticalCount);
+        sb.append(result);
+        System.out.println(sb);
     }
 }
