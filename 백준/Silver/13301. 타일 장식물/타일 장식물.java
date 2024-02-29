@@ -7,7 +7,7 @@ public class Main{
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
                 int N = Integer.parseInt(br.readLine());
-                int [] dp = new int[81];
+                long [] dp = new long[81];
 
                 dp[0] = 1;
                 dp[1] = 1;
@@ -16,7 +16,7 @@ public class Main{
                         dp[i] = dp[i-1] + dp[i-2];
                 }
 
-                int result = dp[N-1] * 2 + dp[N] * 2;
+                long result = dp[N-1] * 2 + dp[N] * 2;
                 System.out.println(result);
         }
 }
