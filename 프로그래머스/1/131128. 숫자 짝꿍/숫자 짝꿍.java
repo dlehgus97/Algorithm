@@ -7,8 +7,6 @@ class Solution {
 
         StringBuilder sb = new StringBuilder();
 
-        int zeroCount = 0;
-
 
         for (int i = 0; i < X.length(); i++) {
             arr_X[X.charAt(i) - '0']++;
