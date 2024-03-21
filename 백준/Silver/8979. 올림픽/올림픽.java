@@ -23,26 +23,39 @@ public class Main {
             arr[i][3] = Integer.parseInt(st.nextToken());
         }
 
-        int result = 1;
+        Arrays.sort(arr, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if (o1[1] == o2[1]) {
+                    if (o1[2] == o2[2]) {
+                        return o2[3] - o1[3];
+                    } else {
+                        return o2[2] - o1[2];
+                    }
+                } else {
+                    return o2[1] - o1[1];
+                }
+            }
+        });
 
-        int turn = 0;
-        boolean [] check = new boolean[N+1];
+        int result = 1;
+        int turn = 0 ;
 
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i][0] == K){
+            if (arr[i][0] == K) {
                 turn = i;
                 break;
             }
         }
 
-        for(int i = 1 ; i<4; i++){
-            for(int j = 1 ; j<arr.length; j++){
-                if(!check[j] && arr[turn][i]<arr[j][i]){
-                    check[j] = true;
-                    result++;
-                }
+
+        for(int i = 0 ; i<arr.length; i++){
+            if(arr[i][1] == arr[turn][1] && arr[i][2] == arr[turn][2] && arr[i][3] == arr[turn][3]){
+                result += i;
+                break;
             }
         }
+
         System.out.println(result);
     }
 }
