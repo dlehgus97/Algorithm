@@ -4,51 +4,56 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String [] args) throws IOException {
+    public static void main(String [] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int X = Integer.parseInt(st.nextToken());
-        int Y = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(br.readLine());
-        int [][] arr = new int[Y][X];
-        boolean [][] check = new boolean[Y][X];
+        int C = Integer.parseInt(st.nextToken());
+        int R = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(br.readLine());
 
-        int[] dy = {0, 1, 0, -1};
-        int[] dx = {1, 0, -1, 0};
-        int result = 1;
+        StringBuilder sb = new StringBuilder();
 
-        if (X * Y < N) {
+        int [] dx = {1,0,-1,0};
+        int [] dy = {0,1,0,-1};
+        int [][] arr = new int[R][C];
+        boolean [][] check = new boolean[R][C];
+
+
+
+        if(C * R < K){
             System.out.println(0);
-        } else {
+        }
+        else{
             int x = 0;
-            int y = Y - 1;
+            int y = R - 1;
             int dir = 3;
+            int result = 1;
 
-            for (int i = 0; i <X * Y; i++){
+            for(int i = 0 ; i<C * R ; i++){
                 arr[y][x] = result;
                 check[y][x] = true;
 
                 int nx = x + dx[dir];
                 int ny = y + dy[dir];
 
-                if (nx < 0 || nx >= X || ny < 0 || ny >= Y || check[ny][nx]) {
+
+                if (nx < 0 || nx >= C || ny < 0 || ny >= R || check[ny][nx]) {
                     dir = (dir + 1) % 4;
                     nx = x + dx[dir];
                     ny = y + dy[dir];
                 }
-
                 x = nx;
                 y = ny;
-                result++;
+                result ++;
+
             }
         }
-        StringBuilder sb = new StringBuilder();
 
-        for(int i = 0 ; i<Y ; i++){
-            for(int j = 0 ; j<X; j++){
-                if(arr[i][j] == N){
-                   sb.append(j + 1 ).append(" ").append(Y - i);
+        for(int i = 0 ; i<R; i++){
+            for(int j = 0 ; j<C; j++){
+                if(arr[i][j] == K){
+                    sb.append(j+ 1).append(" ").append(R - i);
                 }
             }
         }
