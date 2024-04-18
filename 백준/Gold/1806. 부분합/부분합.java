@@ -24,7 +24,7 @@ public class Main {
 
         StringBuilder sb = new StringBuilder();
 
-        while (start <= N && end <= N) {
+        while (end != N+ 1) {
             if (result >= M) {
                 minLength = Math.min(minLength, end - start);
             }
