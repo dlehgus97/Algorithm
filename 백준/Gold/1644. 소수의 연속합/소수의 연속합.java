@@ -23,7 +23,7 @@ public class Main {
         int total = 0 ;
         int result = 0 ;
 
-
+        StringBuilder sb = new StringBuilder();
         while(end != list.size()){
             if(total<N){
                 total += list.get(end);
@@ -39,6 +39,7 @@ public class Main {
                 result++;
             }
         }
+        sb.append(result);
         System.out.println(result);
     }
 
