@@ -9,26 +9,26 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         String str = br.readLine();
 
-        String tmp = "";
+        StringBuilder sb = new StringBuilder();
 
-        for(int i = 0 ; i<N; i++){
+        for(int i = 0 ; i<str.length(); i++){
             if(str.charAt(i) == 'S'){
-                tmp += "*S";
+                sb.append("*S");
             }
             else{
-                tmp += "*LL";
+                sb.append("*LL");
                 i++;
             }
         }
-        tmp += "*";
+        sb.append("*");
 
-        int count = 0 ;
+        int num = 0;
 
-        for(int i = 0 ; i<tmp.length(); i++){
-            if(tmp.charAt(i) == '*'){
-                count++;
+        for(int i = 0 ; i<sb.toString().length(); i++){
+            if(sb.toString().charAt(i) == '*'){
+                num++;
             }
         }
-        System.out.println(Math.min(count,N));
+        System.out.println(Math.min(num,N));
     }
 }
