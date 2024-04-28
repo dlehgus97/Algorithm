@@ -24,7 +24,6 @@ public class Main {
                 N %= arr[i];
             }
         }
-
         System.out.println(sb);
     }
 }
