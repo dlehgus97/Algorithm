@@ -1,23 +1,22 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-public class Main {
+class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
+        int mt = Integer.parseInt(br.readLine());
 
-        int[][] arr = new int[N][2];
-        for (int i = 0; i < N; i++) {
+        int[][] arr = new int[mt][2];
+        for(int i =0; i< mt; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            arr[i][0] = Integer.parseInt(st.nextToken());
-            arr[i][1] = Integer.parseInt(st.nextToken());
+                int startt = Integer.parseInt(st.nextToken());
+                int end = Integer.parseInt(st.nextToken());
+                arr[i][0] = startt;
+                arr[i][1] = end;
         }
-
-        Arrays.sort(arr, new Comparator<int[]>() {    // 정렬을 끝나는 시간 오름차순을 정렬함
+        //정렬 ( 종료시간 기준 정렬)
+        Arrays.sort(arr, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
                 if (o1[1] == o2[1]) {
@@ -26,16 +25,17 @@ public class Main {
                 return o1[1] - o2[1];
             }
         });
+        int endtime = -1;
+        int count =0;
+        for(int i =0; i < mt; i++) {
+            if(endtime <= arr[i][0]) {
 
-        int count = 0;
-        int preNum = 0;
-
-        for (int i = 0; i < N; i++) {
-            if (preNum <= arr[i][0]) {  // 회의시작 시간과 끝나는 시간이 같을 수 있기에 같다는 조건을 추가해준다 .
-                preNum = arr[i][1];  // 회의가 끝나는 시간을 시작시간으로 설정
+                endtime = arr[i][1];
                 count++;
             }
         }
-        System.out.print(count);
+        System.out.println(count);
     }
+
+
 }
