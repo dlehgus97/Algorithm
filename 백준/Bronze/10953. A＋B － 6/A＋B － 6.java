@@ -9,6 +9,8 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
+
+        
         for(int i = 0 ; i<N ; i++){
             StringTokenizer st = new StringTokenizer(br.readLine(),",");
             int a = Integer.parseInt(st.nextToken());
