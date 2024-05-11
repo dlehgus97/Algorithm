@@ -12,6 +12,7 @@ public class Main {
 
         StringBuilder sb = new StringBuilder();
 
+        
         if (N % 10 != 0) {
             sb.append(-1);
         } else {
