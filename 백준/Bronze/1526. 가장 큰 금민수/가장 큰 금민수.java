@@ -24,10 +24,8 @@ public class Main {
                 }
                 num /= 10;
             }
-
             result = Math.max(result , tmp);
         }
-
         System.out.println(result);
     }
 }
