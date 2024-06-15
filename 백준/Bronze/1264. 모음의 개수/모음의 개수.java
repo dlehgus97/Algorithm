@@ -13,6 +13,7 @@ public class Main {
             if (str.equals("#")) {
                 break;
             }
+            
             str = str.replaceAll("[aeiouAEIOU]", "-");
 
             int result = 0;
