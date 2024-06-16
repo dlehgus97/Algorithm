@@ -9,7 +9,6 @@ public class Main {
 
         while (true) {
             String str = br.readLine();
-
             if (str.equals("#")) {
                 break;
             }
