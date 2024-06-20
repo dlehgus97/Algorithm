@@ -22,6 +22,7 @@ class Solution {
             if(arr[0].equals("Enter")){
                 list.add(map.get(arr[1]) + "님이 들어왔습니다.");
             }
+                
             else if(arr[0].equals("Leave")){
                 list.add(map.get(arr[1]) + "님이 나갔습니다.");
             }
