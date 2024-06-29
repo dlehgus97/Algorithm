@@ -14,6 +14,7 @@ public class Main {
 
         if (N % 10 != 0) {
             sb.append(-1);
+            
         } else {
             for (int i = 0; i < 3; i++) {
                 int result = 0;
