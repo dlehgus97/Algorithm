@@ -3,6 +3,7 @@ import java.util.*;
 class Solution {
     public int solution(int[] queue1, int[] queue2) {
         int answer = 0;
+        
         Queue<Integer> que1 = new LinkedList<>();
         Queue<Integer> que2 = new LinkedList<>();
         
