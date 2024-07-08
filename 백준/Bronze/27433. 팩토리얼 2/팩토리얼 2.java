@@ -8,13 +8,14 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
+
         System.out.println(fac(N));
     }
 
-    public static long fac(long n) {
-        if (n == 0)
+    public static long fac(int a) {
+        if (a == 0) {
             return 1;
-        else
-            return n * fac(n - 1);
+        }
+        return a * fac(a - 1);
     }
 }
