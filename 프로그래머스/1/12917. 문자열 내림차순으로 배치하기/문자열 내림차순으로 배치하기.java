@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 class Solution {
     public String solution(String s) {
@@ -7,9 +6,9 @@ class Solution {
         
         String [] arr = s.split("");
         
-        Arrays.sort(arr);
+        Arrays.sort(arr,Collections.reverseOrder());
         
-        for(int i = arr.length - 1 ; i>=0 ; i--){
+        for(int i = 0 ; i<arr.length; i++){
             answer += arr[i];
         }
         return answer;
