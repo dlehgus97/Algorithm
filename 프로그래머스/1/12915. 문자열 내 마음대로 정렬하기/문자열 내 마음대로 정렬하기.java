@@ -2,21 +2,23 @@ import java.util.*;
 
 class Solution {
     public String[] solution(String[] strings, int n) {
-        String[] answer = new String [strings.length];
-        String[] arr = new String [strings.length];
+        Arrays.sort(strings, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                // n번째 문자를 비교
+                Character c1 = s1.charAt(n);
+                Character c2 = s2.charAt(n);
+                if (c1 == c2) {
+                    // n번째 문자가 같다면 전체 문자열을 비교
+                    return s1.compareTo(s2);
+                } else {
+                    // 그렇지 않다면 n번째 문자를 비교
+                    return c1.compareTo(c2);
+                }
+            }
+        });
         
-        for(int i = 0 ; i<arr.length; i++){
-            arr[i] = Character.toString(strings[i].charAt(n));
-            arr[i] += strings[i];
-            System.out.println(arr[i]);
-        }
-        
-        Arrays.sort(arr);
-        
-        for(int i = 0 ; i<arr.length; i++){
-            answer[i] = arr[i].substring(1,arr[i].length());
-        }
-
-        return answer;
+        // 정렬된 배열 반환
+        return strings;
     }
 }
