@@ -11,7 +11,6 @@ class Solution {
                 arr[i][j] = String.valueOf(board[i].charAt(j));
             }
         }
-
         while (true) {
             boolean check = false;
             boolean[][] visit = new boolean[m][n];
