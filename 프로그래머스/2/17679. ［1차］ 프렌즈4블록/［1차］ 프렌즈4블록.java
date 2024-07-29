@@ -30,7 +30,6 @@ class Solution {
                     }
                 }
             }
-
             if (!check) break;
 
             // 블록 제거
