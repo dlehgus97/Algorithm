@@ -34,7 +34,6 @@ class Solution {
                 total1 += num;
                 que1.add(num);
             }
-            
             answer++;
         }
         
