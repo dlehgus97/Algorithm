@@ -36,7 +36,6 @@ class Solution {
             }
             answer++;
         }
-        
         if (total1 != total2) {
             return -1;
         }
