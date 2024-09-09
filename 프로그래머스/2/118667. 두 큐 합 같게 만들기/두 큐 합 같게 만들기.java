@@ -40,6 +40,7 @@ class Solution {
         if (total1 != total2) {
             return -1;
         }
+        
         return answer;
     }
 }
