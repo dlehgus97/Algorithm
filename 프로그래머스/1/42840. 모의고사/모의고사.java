@@ -1,40 +1,48 @@
 import java.util.*;
 
 class Solution {
-    public ArrayList<Integer> solution(int[] answers) {
-        int [] num1 = {1,2,3,4,5};
-        int [] num2 = {2,1,2,3,2,4,2,5};
-        int [] num3 ={3,3,1,1,2,2,4,4,5,5};
+    public int[] solution(int[] answers) {
         
-        int [] arr = new int [3];
+        int [] arr1 = {1,2,3,4,5};
+        int [] arr2 = {2,1,2,3,2,4,2,5};
+        int [] arr3 = {3,3,1,1,2,2,4,4,5,5};
+        int [] result = new int [3];
         
-        for(int i = 0 ; i<answers.length; i++){
-            if(num1[i % 5] == answers[i]){
-                arr[0]++;
+        for(int i = 0 ; i<answers.length ; i++){
+            if(answers[i] == arr1[i % arr1.length]){
+                result[0]++;
             }
-            if(num2[i % 8] == answers[i]){
-                arr[1]++;
+            if(answers[i] == arr2[i % arr2.length]){
+                result[1]++;
             }
-            if(num3[i % 10] == answers[i]){
-                arr[2]++;
+            if(answers[i] == arr3[i % arr3.length]){
+                result[2]++;
             }
         }
         
-        int max = Math.max(arr[0],Math.max(arr[1],arr[2]));
-        int count = 0 ;
+        int max = Math.max(result[0],Math.max(result[1],result[2]));
         
         ArrayList<Integer>list = new ArrayList<>();
         
-        if(max == arr[0]){
+        
+        if(result[0] == max){
             list.add(1);
         }
-        if(max == arr[1]){
+        if(result[1] == max){
             list.add(2);
         }
-        if(max == arr[2]){
+        if(result[2] == max){
             list.add(3);
         }
         
-        return list;
+        int[] answer = new int [list.size()];
+        
+        for(int i = 0 ;i <list.size(); i++){
+            answer[i] = list.get(i);
+        }
+        
+        Arrays.sort(answer);
+        
+        return answer;
     }
 }
